@@ -26,26 +26,28 @@
             </button>
         </span>
     </div>
-    <Modal v-if="obj.isOpen" :address="obj.address" @isClose="isOpen = false" />
+    <Modal v-if="obj.isOpen" :address="obj.address" @isClose="closeModal" />
 </template>
 <script setup>
-    import { defineProps, defineEmits, reactive} from 'vue'
-    import api from "../services/api"
-    import Modal from "../components/Modal.vue"
-    
-    const props = defineProps(['addresses'])
-    const emit = defineEmits(['updateAddresses'])
+import { defineProps, defineEmits, reactive } from 'vue'
+import api from "../services/api"
+import Modal from "../components/Modal.vue"
 
-    const obj = reactive({
-        isOpen: false,
-        address: {}
-    })
-    
-    async function removeAddrress(id) {
-        await api.delete(`/cep/${id}`);
-        emit('updateAddresses')
-    }
+const props = defineProps(['addresses'])
+const emit = defineEmits(['updateAddresses'])
 
+const obj = reactive({
+    isOpen: false,
+    address: {}
+})
+
+async function removeAddrress(id) {
+    await api.delete(`/cep/${id}`);
+    emit('updateAddresses')
+}
+function closeModal() {
+    obj.isOpen = false
+}
 </script>
 
 <style scoped>
@@ -53,9 +55,11 @@
     font-weight: bold;
     width: 100%;
     height: 2rem;
+    padding: 2rem 0;
     display: flex;
     justify-content: space-around;
 }
+
 .tableCell {
     width: 100%;
     min-height: 2rem;
@@ -63,18 +67,22 @@
     justify-content: space-around;
     margin: 0.2rem;
 }
-#tableColumnTitle, #tableCellContent {
+
+#tableColumnTitle,
+#tableCellContent {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0.2rem;
     width: 10rem;
 }
+
 #icon {
     height: 1rem;
     filter: invert(75%);
 }
-#actionsButtons{
+
+#actionsButtons {
     display: flex;
     width: 10rem;
     padding: 0.2rem;
@@ -82,7 +90,8 @@
     justify-content: center;
     min-height: 2rem;
 }
-#actionsButtons button{
+
+#actionsButtons button {
     height: 2rem;
     width: 2rem;
     display: flex;
