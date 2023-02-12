@@ -35,7 +35,7 @@ Acesse <http://localhost:8000/admin> para administrar o projeto
 ### Rodando o Front End
 
 #### Acesse a pasta do projeto no terminal/cmd
-$ cd web
+$ cd frontend
 
 #### Instale as dependências
 $ yarn install
