@@ -28,7 +28,7 @@ O servidor inciará na porta 8000 <http://localhost:8000>
 #### Para administrar o projeto
 $ sudo docker-compose exec web bash
 - Crie um usuário
-$ python manage.py superuser
+- $ python manage.py superuser
 
 Acesse <http://localhost:8000/admin> para administrar o projeto
 
