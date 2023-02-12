@@ -2,7 +2,7 @@
     <div class="address">
         <div class="content">
             <span>CEP: {{ address.cep }}</span>
-            <span>Logradouro: {{ address.logradouro }}</span>
+            <span>Localidade: {{ address.localidade }}</span>
             <span>UF: {{ address.uf }}</span>
         </div>
         <button @click="createZipcode(address)">+</button>
