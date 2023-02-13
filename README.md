@@ -20,6 +20,15 @@ $ git clone https://github.com/SulamitaAlthaus/searchZipcode
 #### Acesse a pasta do projeto no terminal/cmd
 $ cd backend
 
+#### Crie o seu arquivo ENV
+    Exemplo:
+        DATABASE_HOST=db
+        DATABASE_PORT=5432
+        DATABASE_USER=myuser
+        DATABASE_PASSWORD=mypassword
+        DATABASE_NAME=searchzipcode
+
+
 #### Execute a aplicação em modo de desenvolvimento
 $ sudo docker-compose up
 
